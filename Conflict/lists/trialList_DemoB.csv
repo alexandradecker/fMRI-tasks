@@ -1,0 +1,9 @@
+imgNorth,imgSouth,imgWest,imgEast,ITI,correctResponse,targetDimension
+stimuli/Faces/F02.pict.jpg,stimuli/Faces/F02.pict.jpg,stimuli/Houses/H02.pict.jpg,stimuli/Houses/H02.pict.jpg,3.050,IDENTICAL,NS
+stimuli/Houses/H04.pict.jpg,stimuli/Houses/H04.pict.jpg,stimuli/Faces/F05.pict.jpg,stimuli/Faces/F03.pict.jpg,8.350,IDENTICAL,NS
+stimuli/Faces/F06.pict.jpg,stimuli/Faces/F03.pict.jpg,stimuli/Houses/H02.pict.jpg,stimuli/Houses/H04.pict.jpg,11.550,DIFFERENT,NS
+stimuli/Houses/H03.pict.jpg,stimuli/Houses/H06.pict.jpg,stimuli/Faces/F01.pict.jpg,stimuli/Faces/F02.pict.jpg,11.550,DIFFERENT,NS
+stimuli/Houses/H05.pict.jpg,stimuli/Houses/H01.pict.jpg,stimuli/Faces/F01.pict.jpg,stimuli/Faces/F01.pict.jpg,8.350,DIFFERENT,NS
+stimuli/Faces/F06.pict.jpg,stimuli/Faces/F06.pict.jpg,stimuli/Houses/H05.pict.jpg,stimuli/Houses/H06.pict.jpg,8.350,IDENTICAL,NS
+stimuli/Houses/H01.pict.jpg,stimuli/Houses/H01.pict.jpg,stimuli/Faces/F04.pict.jpg,stimuli/Faces/F04.pict.jpg,3.050,IDENTICAL,NS
+stimuli/Faces/F04.pict.jpg,stimuli/Faces/F05.pict.jpg,stimuli/Houses/H03.pict.jpg,stimuli/Houses/H03.pict.jpg,3.050,DIFFERENT	,NS

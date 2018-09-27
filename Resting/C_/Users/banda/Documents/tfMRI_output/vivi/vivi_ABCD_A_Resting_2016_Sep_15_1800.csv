@@ -1,0 +1,5 @@
+Question,Answer,Possible Answers,Possible Inputs,expName,run,CB,frameRate,group,runMode,session,date,participant,
+Fall asleep?,['1'],['Yes': 'No'],['1': '2'],Resting,A,1,59.9466322125,HC,Scanner,ABCD,2016_Sep_15_1800,vivi,
+How many times did you fall sleep?,['2'],['1 time': '2 times': '3 times': '4 times': '5 times'],['1': '2': '3': '4': '5'],Resting,A,1,59.9466322125,HC,Scanner,ABCD,2016_Sep_15_1800,vivi,
+Thoughts drifted?,['1'],['Yes': 'No'],['1': '2'],Resting,A,1,59.9466322125,HC,Scanner,ABCD,2016_Sep_15_1800,vivi,
+How many times did your thoughts drift?,['2'],['Almost Never': 'Sometimes': 'Half the Time': 'Often': 'Always'],['1': '2': '3': '4': '5'],Resting,A,1,59.9466322125,HC,Scanner,ABCD,2016_Sep_15_1800,vivi,

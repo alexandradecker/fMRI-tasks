@@ -1,0 +1,158 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+A preliminary version of this experiment was created using
+PsychoPy2 Experiment Builder (v1.81.03), Tue Jan 20 10:30:57 2015
+
+This script was then further modified by JTM (Jan-Feb 2015). 
+
+If you publish work using this script please cite the relevant PsychoPy publications
+  Peirce, JW (2007) PsychoPy - Psychophysics software in Python. Journal of Neuroscience Methods, 162(1-2), 8-13.
+  Peirce, JW (2009) Generating stimuli for neuroscience using PsychoPy. Frontiers in Neuroinformatics, 2:10. doi: 10.3389/neuro.11.010.2008
+"""
+
+from __future__ import division  # so that 1/3=0.333 instead of 1/3=0
+from psychopy import core, data, event, logging, gui
+from psychopy.constants import *  # things like STARTED, FINISHED
+import numpy as np  # whole numpy lib is available, prepend 'np.'
+from numpy import sin, cos, tan, log, log10, pi, average, sqrt, std, deg2rad, rad2deg, linspace, asarray
+from numpy.random import random, randint, normal, shuffle
+import os  # handy system and path functions
+import sys
+
+# Ensure that relative paths start from the same directory as this script
+_thisDir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(_thisDir)
+
+# Collect run mode and participant ID
+expInfo = {}
+dlg1 = gui.Dlg(title="Participant ID")
+dlg1.addField('Participant')
+dlg1.addField('Mode', choices=["Scanner", "Practice", "Debug"])
+dlg1.show()
+if dlg1.OK:  # then the user pressed OK
+    # add the new entries to expInfo
+    expInfo['Participant'] = dlg1.data[0]
+    expInfo['RunMode'] = dlg1.data[1]
+    RunMode = expInfo['RunMode']
+else:
+    core.quit() # user pressed cancel
+
+
+
+# Look up stored parameters for this participant
+# ***POTENTIAL MODIFICATION***
+# look up header information based on subject ID
+# use this to set default values in the dialog box below
+# save header information so it can later be looked up w/ subject ID
+# and require that all field be populated in order to proceed
+
+# Collect additional header information if running in Scanner mode
+if RunMode == 'Scanner':
+    dlg2 = gui.Dlg(title="Participant details")
+    dlg2.addField('Group', choices=["HC", "MDD"])
+    dlg2.addField('Run', choices=["Run 1", "Run 2"])
+    dlg2.show()  # show dialog and wait for OK or Cancel
+    if dlg2.OK:  # then the user pressed OK
+        # add the new entries to expInfo
+        expInfo['Group'] = dlg2.data[0]
+        expInfo['Run'] = dlg2.data[1]
+    else:
+        core.quit() # user pressed cancel
+
+# Store additional header info
+expName = 'resing'
+expInfo['expName'] = expName
+expInfo['date'] = data.getDateStr()  # add a simple timestamp
+
+# certain import statements were deferred till now because they
+# interfere with dialog boxes
+from psychopy import visual, sound
+
+# Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
+filename = _thisDir + os.sep + 'data/%s_%s_%s' %(expInfo['Participant'], expName, expInfo['date'])
+
+# An ExperimentHandler isn't essential but helps with data saving
+thisExp = data.ExperimentHandler(name=expName, version='',
+    extraInfo=expInfo, runtimeInfo=None,
+    originPath=None,
+    savePickle=True, saveWideText=True,
+    dataFileName=filename)
+#save a log file for detail verbose info
+logFile = logging.LogFile(filename+'.log', level=logging.EXP)
+logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
+
+endExpNow = False  # flag for 'escape' or other condition => quit the exp
+print "hola"
+# Setup the Window
+win = visual.Window(size=(1200, 900), fullscr=True, screen=0, allowGUI=False, allowStencil=False,
+    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
+    blendMode='avg', useFBO=True, waitBlanking=True
+   )
+print "chua"
+# store frame rate of monitor if we can measure it successfully
+expInfo['frameRate']=win.getActualFrameRate()
+if expInfo['frameRate']!=None:
+    frameDur = 1.0/round(expInfo['frameRate'])
+else:
+    frameDur = 1.0/60.0 # couldn't get a reliable measure so guess
+
+
+# Initialize informational messages
+msgInstr = visual.TextStim(win,text="Please keep your eyes open. This experiment will last 10 minutes.",
+    pos=(0,0),alignHoriz='center',colorSpace='rgb',color=1,height=0.10,wrapWidth=1.5,depth=0.01)
+msgExpter = visual.TextStim(win,text="Waiting for the experimenter.",
+    pos=(0,0),colorSpace='rgb',color=1,height=0.15,wrapWidth=1.5,depth=0.01)
+msgScanner = visual.TextStim(win,text="Waiting for the scanner.",
+    pos=(0,0),colorSpace='rgb',color=-1,height=0.15,wrapWidth=1.5,depth=0.01)
+msgBlank = visual.TextStim(win,text="",
+    pos=(0,0),colorSpace='rgb',color=-1,height=0.15,wrapWidth=1.5,depth=0.01)
+msgComplete = visual.TextStim(win,text="Task complete.",
+    pos=(0,0),colorSpace='rgb',color=1,height=0.15,wrapWidth=1.5,depth=0.01)
+
+
+#ISI = core.StaticPeriod(win=win, screenHz=expInfo['frameRate'], name='ISI')
+Fixation = visual.TextStim(win=win, ori=0, name='Fixation',
+    text='+',    font='Arial',
+    pos=[0, 0], height=0.1, wrapWidth=None,
+    color='white', colorSpace='rgb', opacity=1,
+    depth=-1.0)
+
+print "hola"
+msgInstr.draw()
+win.flip()
+event.waitKeys(keyList=["space"])
+
+# set the cue positions
+# Pre-block messages
+# Message 1: waiting for the experimenter
+msgExpter.draw()
+win.flip()
+event.waitKeys(keyList=["q"])
+# Message 2: waiting for the scanner
+msgScanner.draw()
+win.flip()
+event.waitKeys(keyList=["t","equal"])
+
+
+Fixation.draw()
+          
+win.flip()
+          
+# check for quit (the Esc key)
+event.waitKeys(keyList=["escape"]
+msgComplete.draw()	
+win.flip()
+event.waitKeys(keyList=["q","space"])
+
+core.quit()
+
+  
+  
+# completed loop over runs
+
+# Task-complete message
+
+
+win.close()
+core.quit()
