@@ -67,7 +67,7 @@ if not existingCurrentBANDA:
                     if index == 0 and dlg1Runs.data[index]: selectedruns.append("A")
                     elif index == 1 and dlg1Runs.data[index]: selectedruns.append("B")
 
-                print selectedruns
+                # print selectedruns
         else:
             expInfo['run'] = dlg1.data[2]
         expInfo['CB'] = "1" #dlg2.data[2]
@@ -78,7 +78,7 @@ else:
     #retrieving participant ID from existing files
     BANDAfileSplit = existingCurrentBANDA[0].split('\\')
     currentBANDAname = BANDAfileSplit[1]
-    print "Current Participant ID: " + currentBANDAname
+    # print "Current Participant ID: " + currentBANDAname
     
     dlg1 = gui.Dlg(title=currentBANDAname)
     dlg1.addField('Participant ID',currentBANDAname)
@@ -91,7 +91,7 @@ else:
     if dlg1.OK:  # then the user pressed OK
         # add the new entries to expInfo
         expInfo['participant'] = currentBANDAname
-        print dlg1.data[0]
+        # print dlg1.data[0]
         if dlg1.data[0]: expInfo['participant'] = dlg1.data[0]
         expInfo['runMode'] = dlg1.data[1]
         expInfo['CB'] = "1" #dlg2.data[2]
@@ -106,7 +106,7 @@ else:
                 for index in range(len(dlg1Runs.data)):
                     if index == 0 and dlg1Runs.data[index]: selectedruns.append("A")
                     elif index == 1 and dlg1Runs.data[index]: selectedruns.append("B")
-                print selectedruns
+                # print selectedruns
         else:
             expInfo['run'] = dlg1.data[2]
 
@@ -189,12 +189,12 @@ with open('all_blocks_list_A.csv', 'wb') as csvfile:
 	    writer = csv.DictWriter(csvfile, fieldnames = ["trial_blocks"])
 	    writer.writeheader()
 	    for i in all_run_blocks_A:
-	        print>>csvfile, i
+	        # print>>csvfile, i
 with open('all_blocks_list_B.csv', 'wb') as csvfile:
 	    writer = csv.DictWriter(csvfile, fieldnames = ["trial_blocks"])
 	    writer.writeheader()
 	    for i in all_run_blocks_B:
-	        print>>csvfile, i
+	        # print>>csvfile, i
 
 """
 down_targets=[1,2,3,4]
@@ -202,7 +202,7 @@ up_targets=[6,7,8,9]
 all_targets=down_targets+up_targets
 targets=random.sample(all_targets,8)
 
-print targets
+# print targets
 
 # Initialize components for Routine "instructions"
 instructionsClock = core.Clock()
@@ -545,9 +545,9 @@ for r in runs:
 	    seed=None, name='trials')
         """
 	if expInfo['run']=='A':
-	    print  "run list A:",all_run_blocks_A
+	    # print  "run list A:",all_run_blocks_A
 	else:
-	    print  "run B:",all_run_blocks_B
+	    # print  "run B:",all_run_blocks_B
 	"""
 	thisExp.addLoop(trials)  # add the loop to the experiment
 	thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -749,7 +749,7 @@ for r in runs:
 		        if len(theseKeys) > 0:  # at least one key was pressed
 		            trial_sign_key_reso.keys = theseKeys[-1]  # just the last key pressed
 		            trial_sign_key_reso.rt = trial_sign_key_reso.clock.getTime()
-		            print '+', trial_sing_text.setText('+')
+		            # print '+', trial_sing_text.setText('+')
 		       	    for k in theseKeys:
 				allPressedKeys.append(k)	
 			    	allPressedKeysTime.append(trial_sign_key_reso.clock.getTime())  
@@ -784,7 +784,7 @@ for r in runs:
 		    current_trial.addData('trial_sign_key_reso.rt', trial_sign_key_reso.rt)
 		current_trial.addData('allPressedKeys',str(allPressedKeys).replace(",",":"))
 		current_trial.addData('allPressedKeysTime',str(allPressedKeysTime).replace(",",":"))
-		print "keys pressed: ", allPressedKeys
+		# print "keys pressed: ", allPressedKeys
 		#------Prepare to start Routine "trial_card_code"-------
 		t = 0
 		trial_card_codeClock.reset()  # clock 
@@ -838,7 +838,7 @@ for r in runs:
 		# keep track of which components have finished
 		trial_cardComponents = []
 		trial_cardComponents.append(trial_card_text)
-		#print trial_card_text.text
+		## print trial_card_text.text
 		if trial_card_text.text=='win':
 		    if trial_sign_key_reso.keys=='1' or trial_sign_key_reso.keys=='9':
 		        this_round_targets=up_targets
@@ -873,7 +873,7 @@ for r in runs:
 		    trial_card_text.setText('5')
 		               
 		        
-		print "money",money
+		# print "money",money
 		current_trial.addData('MoneyEarned',"$"+str(money))
 	       
 		for thisComponent in trial_cardComponents:
@@ -988,7 +988,7 @@ for r in runs:
 		    if hasattr(thisComponent, "setAutoDraw"):
 		        thisComponent.setAutoDraw(False)
 
-                #TEST TIMER print testtimeClock.getTime()
+                #TEST TIMER # print testtimeClock.getTime()
 
 		thisExp.nextEntry()
 	     
